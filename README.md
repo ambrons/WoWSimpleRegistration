@@ -68,6 +68,43 @@ cd WoWSimpleRegistration
 git checkout 32a1e7e6bc31f2ed6ed1d83f64d1ae62aeab9d32
 ```
 
+## Docker Build
+```
+docker build -t wow-simple-registration:1.0.0 . --platform=linux/arm/v7
+```
+
+## Docker Run
+```
+docker run -d \
+   -p 8080:8000 \
+   -e WSR_BASEURL="http://localhost:8080" \
+   -e WSR_PAGE_TITLE="title" \
+   -e WSR_LANGUAGE="english" \
+   -e WSR_REALMLIST="realm" \
+   -e WSR_PATCH_LOCATION="" \
+   -e WSR_GAME_VERSION="2.4.3 (8606)" \
+   -e WSR_EXPANSION="1" \
+   -e WSR_SERVER_CORE="5" \
+   -e WSR_TEMPLATE="light" \
+   -e WSR_SMTP_HOST="smtp" \
+   -e WSR_SMTP_USER="<USER>" \
+   -e WSR_SMTP_PASS="<PASS>" \
+   -e WSR_SMTP_MAIL="from-email" \
+   -e WSR_CAPTCHA_TYPE="5" \
+   -e WSR_DB_AUTH_HOST="DB_HOST" \
+   -e WSR_DB_AUTH_USER="<USER>" \
+   -e WSR_DB_AUTH_PASS="<PASS>" \
+   -e WSR_DB_AUTH_DBNAME="tbcrealmd" \
+   -e WSR_REALM_NAME="Karazhan" \
+   -e WSR_REALM_DB_HOST="DB_HOST" \
+   -e WSR_REALM_DB_USER="<USER>" \
+   -e WSR_REALM_DB_PASS="<PASS>" \
+   -e WSR_REALM_DB_NAME="tbccharacters" \
+   --rm --name wowsignup \
+   ambrons/wow-simple-registration:1.0.0
+```
+
+
 # 🪛 Debugging
 
 Encountering a blank page can be a common issue, typically indicating a hidden error that needs to be diagnosed. To facilitate troubleshooting, enable `debug_mode` in the configuration file.

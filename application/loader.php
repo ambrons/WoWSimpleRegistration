@@ -6,6 +6,10 @@
  * @Description : It's not masterking32 framework !
  **/
 
+/*  disable errors around dreprecation warnings from voku */
+ini_set('display_errors', 0);
+error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_USER_NOTICE & ~E_USER_DEPRECATED);
+
 use voku\helper\AntiXSS;
 
 header('X-Powered-Framework: MasterkinG-Framework');
